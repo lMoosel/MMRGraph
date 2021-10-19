@@ -1,0 +1,11 @@
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\bin\Debug\MMRGraph.exe.config
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\bin\Debug\MMRGraph.exe
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\bin\Debug\MMRGraph.pdb
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.csproj.AssemblyReference.cache
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.Form1.resources
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.Properties.Resources.resources
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.csproj.GenerateResource.cache
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.csproj.CoreCompileInputs.cache
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.exe
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.pdb
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.Form2.resources
