@@ -15,3 +15,4 @@ AI play against themselves and are rated based on preformance
 - Currently rewriting the decision making structure of the AI
   - currently just focuses on a specific color
 - Normally writes to a file but I have commented it out
+- You are able to play against in AI but need to provide it weights
