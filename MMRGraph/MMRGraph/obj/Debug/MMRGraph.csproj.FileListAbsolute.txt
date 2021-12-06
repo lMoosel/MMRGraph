@@ -9,3 +9,4 @@ C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.csproj.CoreComp
 C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.exe
 C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.pdb
 C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.Form2.resources
+C:\Users\claim\source\repos\MMRGraph\MMRGraph\obj\Debug\MMRGraph.Form3.resources

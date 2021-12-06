@@ -35,6 +35,8 @@ namespace MMRGraph
             this.lblAITiers = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnPlayAI = new System.Windows.Forms.Button();
+            this.btnStartingWeights = new System.Windows.Forms.Button();
+            this.txtWeights = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnStart
@@ -49,7 +51,7 @@ namespace MMRGraph
             // 
             // tmrTurns
             // 
-            this.tmrTurns.Interval = 1;
+            this.tmrTurns.Interval = 25;
             this.tmrTurns.Tick += new System.EventHandler(this.tmrTurns_Tick);
             // 
             // lblAITiers
@@ -81,11 +83,30 @@ namespace MMRGraph
             this.btnPlayAI.UseVisualStyleBackColor = true;
             this.btnPlayAI.Click += new System.EventHandler(this.btnPlayAI_Click);
             // 
+            // btnStartingWeights
+            // 
+            this.btnStartingWeights.Location = new System.Drawing.Point(32, 213);
+            this.btnStartingWeights.Name = "btnStartingWeights";
+            this.btnStartingWeights.Size = new System.Drawing.Size(100, 23);
+            this.btnStartingWeights.TabIndex = 9;
+            this.btnStartingWeights.Text = "Input weights";
+            this.btnStartingWeights.UseVisualStyleBackColor = true;
+            this.btnStartingWeights.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtWeights
+            // 
+            this.txtWeights.Location = new System.Drawing.Point(15, 187);
+            this.txtWeights.Name = "txtWeights";
+            this.txtWeights.Size = new System.Drawing.Size(138, 20);
+            this.txtWeights.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 637);
+            this.Controls.Add(this.txtWeights);
+            this.Controls.Add(this.btnStartingWeights);
             this.Controls.Add(this.btnPlayAI);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblAITiers);
@@ -104,6 +125,8 @@ namespace MMRGraph
         private System.Windows.Forms.Label lblAITiers;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnPlayAI;
+        private System.Windows.Forms.Button btnStartingWeights;
+        private System.Windows.Forms.TextBox txtWeights;
     }
 }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace MMRGraph
 {
@@ -29,8 +30,8 @@ namespace MMRGraph
         {
 
             opponent.setPlayerValues(playerGame.getPlayerValues()[0], playerGame.getPlayerValues()[1]);
-
             playerGame.increaseValues(2, opponent.spendPoints());
+            updateLabels();
             if (playerGame.getPlayerScores(1) >= 10)
             {
                 lblGameResult.Text = "Player Wins";
@@ -66,7 +67,8 @@ namespace MMRGraph
             btnGreen.Enabled = true;
             btnYellow.Enabled = true;
             btnPurple.Enabled = true;
-            updateLabels();
+            lblTurnString.Text = playerGame.turnString;
+            
         }
 
         private void btnRed_Click(object sender, EventArgs e)
@@ -126,28 +128,26 @@ namespace MMRGraph
 
         private void btnInput_Click(object sender, EventArgs e)
         {
-            
-            double[][] weights = new double[5][];
-            
+
+            double[] weights1 = new double[80];
+            double[] weights2 = new double[40];
+
 
             string[] temp = txtWeights.Text.Split(';');
-            string[][] temp2 = new string[5][];
 
-            for (int i = 0; i < 5; i++)
+            string[] temp2 = temp[0].Split(',');
+            for(int i = 0; i < weights1.Length; i++)
             {
-                temp2[i] = temp[i].Split(',');
+                weights1[i] = Convert.ToDouble(temp2[i]);
+            }
+            temp2 = temp[1].Split(',');
+
+            for (int i = 0; i < weights2.Length-1; i++)
+            {
+                weights2[i] = Convert.ToDouble(temp2[i]);
             }
 
-            for(int i = 0; i < 5; i++)
-            {
-                weights[i] = new double[6];
-                for (int j = 0; j<6; j++)
-                {
-                    weights[i][j] = Convert.ToDouble(temp2[i][j]);
-                }
-            }
-
-            opponent = new AI(weights);
+            opponent = new AI(weights1, weights2);
         }
 
         private void updateLabels()
@@ -166,6 +166,11 @@ namespace MMRGraph
             lblAIGreen.Text = opponentValues[2].ToString();
             lblAIYellow.Text = opponentValues[3].ToString();
             lblAIPurple.Text = opponentValues[4].ToString();
+
+        }
+
+        private void txtWeights_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

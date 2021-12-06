@@ -49,6 +49,7 @@ namespace MMRGraph
             this.lblGameResult = new System.Windows.Forms.Label();
             this.txtWeights = new System.Windows.Forms.TextBox();
             this.btnInput = new System.Windows.Forms.Button();
+            this.lblTurnString = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRed
@@ -225,6 +226,7 @@ namespace MMRGraph
             this.txtWeights.Name = "txtWeights";
             this.txtWeights.Size = new System.Drawing.Size(100, 20);
             this.txtWeights.TabIndex = 18;
+            this.txtWeights.TextChanged += new System.EventHandler(this.txtWeights_TextChanged);
             // 
             // btnInput
             // 
@@ -236,11 +238,21 @@ namespace MMRGraph
             this.btnInput.UseVisualStyleBackColor = true;
             this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
             // 
+            // lblTurnString
+            // 
+            this.lblTurnString.AutoSize = true;
+            this.lblTurnString.Location = new System.Drawing.Point(647, 385);
+            this.lblTurnString.Name = "lblTurnString";
+            this.lblTurnString.Size = new System.Drawing.Size(25, 13);
+            this.lblTurnString.TabIndex = 20;
+            this.lblTurnString.Text = "000";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 459);
+            this.Controls.Add(this.lblTurnString);
             this.Controls.Add(this.btnInput);
             this.Controls.Add(this.txtWeights);
             this.Controls.Add(this.lblGameResult);
@@ -291,5 +303,6 @@ namespace MMRGraph
         private System.Windows.Forms.Label lblGameResult;
         private System.Windows.Forms.TextBox txtWeights;
         private System.Windows.Forms.Button btnInput;
+        private System.Windows.Forms.Label lblTurnString;
     }
 }

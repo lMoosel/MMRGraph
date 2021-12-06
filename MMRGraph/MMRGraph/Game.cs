@@ -14,6 +14,7 @@ namespace MMRGraph
         int[] p2Values = new int[5];
         int p1score, p2score;
         public int player1ID, player2ID;
+        public string turnString = "";
         int turns;
         bool gameActive;
         public Game(int p1, int p2)
@@ -25,6 +26,7 @@ namespace MMRGraph
 
         private void resetValues() //Testing function
         {
+            /*
             for (int i = 0; i < 5; i++)
             {
                 p1Values[i] = gen.Next(2);
@@ -33,6 +35,9 @@ namespace MMRGraph
             {
                 p2Values[i] = gen.Next(2);
             }
+            */
+            p1Values = new int[5] {1,1,1,1,1};
+            p2Values = new int[5] { 1, 1, 1, 1, 1};
         }
         public int[][] getPlayerValues()
         {
@@ -78,61 +83,74 @@ namespace MMRGraph
 
         public int playRound()
         {
-            int p1RoundScore = 0, p2RoundScore = 0;
-            int winningPlayer;
+            bool p1Turn = true;
+            int p1attacker = 0, p2attacker = 0;
+            int p1roundscore = 0, p2roundscore = 0;
+            int target;
 
-            for(int i = 0; i<p1Values.Length; i++)
+            turnString = "";
+            
+
+            turns++;
+
+            for(int i = 0; i < 5; i++)
             {
-               if(p1Values[i] > p2Values[i])
+                target = gen.Next(0, 5);
+                if (gen.Next(0, 2) == 1)
                 {
-                    p1RoundScore++;
+                    p1Turn = !p1Turn;
                 }
-               else if (p1Values[i] < p2Values[i])
+                
+
+                if (p1Turn)
                 {
-                    p2RoundScore++;
+                    if (p1Values[p1attacker] > p2Values[target])
+                    {
+                        p1roundscore++;
+                    }
+                    p1attacker++;
+                }
+                else
+                {
+                    if (p2Values[p2attacker] > p1Values[target])
+                    {
+                        p2roundscore++;
+                    }
+                    p2attacker++;
                 }
 
-                if (p1Values[i] > p2Values[(i+2)%5]*2)
+                if (p1Turn) //Records the actions of the turn; First number is player that started, 2nd is p1 involved index, 3rd is p2 involved index
                 {
-                    p1RoundScore++;
+                    turnString = turnString + "1" + (p1attacker-1).ToString() + target.ToString()+",";
                 }
-                else if (p1Values[i] < p2Values[(i + 2) % 5]*2)
+                else
                 {
-                    p2RoundScore++;
-                }
-
-                if (p1Values[i]*2 > p2Values[(i + 3) % 5])
-                {
-                    p1RoundScore++;
-                }
-                else if (p1Values[i]*2 < p2Values[(i + 3) % 5])
-                {
-                    p2RoundScore++;
+                    turnString = turnString + "2" + target.ToString() + (p2attacker-1).ToString()+",";
                 }
             }
 
-            if (p1RoundScore > p2RoundScore)
+
+            if (p1roundscore > p2roundscore)
             {
                 p1score++;
-                winningPlayer = 1;
+                return 1;
             }
-            else if (p2RoundScore > p1RoundScore)
+            else if (p2roundscore > p1roundscore)
             {
                 p2score++;
-                winningPlayer = 2;
+                return 2;
+            }
+            else if (turns == 10)
+            {
+                return 3;
             }
             else
             {
-                winningPlayer = 0;
+                return 0;
             }
 
-            if(turns >= 25)
-            {
-                winningPlayer = 3;
-            }
-
-            turns += 1;
-            return winningPlayer;
+            
+           
         } 
 
         
