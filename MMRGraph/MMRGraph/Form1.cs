@@ -22,7 +22,7 @@ namespace MMRGraph
         int recordings = 0;
         public Form1()
         {
-            StreamWriter sw = new StreamWriter("C:\\MMRGraph\\MMRcsv.txt");
+            StreamWriter sw = new StreamWriter(""); //Enter file path here
             string headers = "";
             
             for (int i =0; i < listOfAI.Length; i++)
@@ -101,7 +101,7 @@ namespace MMRGraph
                     {
                         outputString = outputString + "," + listOfAI[i].getMMR();
                     }
-                    sw = File.AppendText("C:\\MMRGraph\\MMRcsv.txt");
+                    sw = File.AppendText(""); //Enter file path here
                     sw.WriteLine(outputString);
                     sw.Close();
                     lineCount = 0;
@@ -186,7 +186,7 @@ namespace MMRGraph
             string outputString = "";
             int bestAI = 0;
             double[] weights;
-            sw = File.AppendText("C:\\MMRGraph\\BestWeights.txt");
+            sw = File.AppendText(""); //Enter file path here
 
             sw.WriteLine("");
 
